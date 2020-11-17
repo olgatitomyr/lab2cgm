@@ -1,0 +1,10 @@
+from PIL import Image, ImageDraw
+
+image = Image.new('L', (960, 540), 255)
+draw = ImageDraw.Draw(image)
+with open("DS0.txt", "r") as file:
+    for line in file:
+        coords = line.split()
+        draw.line((int(coords[1]), int(coords[0]), int(coords[1])+1, int(coords[0])+1))
+image.show()
+image.save('resultDS0.png')
